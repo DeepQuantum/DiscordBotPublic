@@ -1,5 +1,5 @@
 import random
-from constants import LETTERMAPPING, NUMBERMAPPING
+from constants import LETTERMAPPING, NUMBERMAPPING, BASEPATH, COGSPATH
 from textwrap import wrap
 
 
@@ -102,10 +102,10 @@ class Encrypter:
         bestMatch = matches[0]
 
         if (lang == "eng" or lang == "both"):
-            bestMatch = Encrypter.combfile(r'C:\Users\damix\Documents\GitHub\DiscordBot\cogs\data\dictionary.txt', matches)
+            bestMatch = Encrypter.combfile(COGSPATH + '\data\dictionary.txt', matches)
         
         elif (lang == "ger" or lang == "both"):
-            bestMatch = Encrypter.combfile(r'C:\Users\damix\Documents\GitHub\DiscordBot\cogs\data\german.txt', matches)
+            bestMatch = Encrypter.combfile(COGSPATH + '\data\german.txt', matches)
         
         return f"[Accuracy: {bestMatch.accuracy}]{bestMatch.sentence}"
 
