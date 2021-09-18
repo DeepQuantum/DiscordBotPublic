@@ -1,7 +1,7 @@
 import discord, os, random, urllib.request
 from discord.errors import HTTPException
 from discord.ext import commands
-from constants import logcommand
+from constants import COGSPATH, logcommand
 from discord_components import DiscordComponents, Button
 from libretranslatepy import LibreTranslateAPI
 from bs4 import BeautifulSoup as BS
@@ -29,7 +29,7 @@ class Web(commands.Cog):
     
     @commands.command()
     async def randomfact(self, ctx):
-        with open(r'C:\Users\damix\Documents\GitHub\DiscordBot\cogs\data\facts.data', 'r') as facts:
+        with open(COGSPATH + r'\data\facts.data', 'r') as facts:
             await ctx.send(random.choice(facts.readlines()))
 
     @commands.command(aliases=["Translate", "translation", "Translation"])
